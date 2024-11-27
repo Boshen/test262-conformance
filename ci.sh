@@ -8,4 +8,4 @@ echo 'node:' `node --version`
 	--timeout=10000 \
 	--threads=8 \
   --preprocessor ./preprocessor.js \
-  "./test262/test/language/asi/*.js" | grep -v ^PASS
+  "test262/test/language/**/*.js" | grep -v ^PASS
