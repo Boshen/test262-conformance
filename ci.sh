@@ -1,6 +1,6 @@
 #!/bin/bash
 
-node --version
+echo 'node:' `node --version`
 
 ./node_modules/.bin/test262-harness \
   --host-type=node \
@@ -8,4 +8,4 @@ node --version
 	--timeout=10000 \
 	--threads=8 \
   --preprocessor ./preprocessor.js \
-  "./test262/test/language/comments/*.js"
+  "./test262/test/language/asi/*.js" | grep -v ^PASS
