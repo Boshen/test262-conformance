@@ -7,14 +7,13 @@ settings:
 importers:
 
   .:
-    dependencies:
-      oxc-transform:
-        specifier: ^0.38.0
-        version: 0.38.0
     devDependencies:
       degit:
         specifier: ^2.8.4
         version: 2.8.4
+      oxc-transform:
+        specifier: ^0.38.0
+        version: 0.38.0
       test262-harness:
         specifier: ^10.0.0
         version: 10.0.0

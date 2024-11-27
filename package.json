@@ -2,6 +2,7 @@
   "name": "test262-conformance",
   "private": true,
   "version": "0.0.0",
+  "packageManager": "pnpm@9.14.2",
   "scripts": {
     "init": "degit tc39/test262 test262"
   },
