@@ -1,9 +1,13 @@
 const { transform } = require('oxc-transform');
 
+const target = process.env.TARGET || 'node22'
+
+console.log('target: ', target);
+
 module.exports = function (test) {
   const result = transform(test.file, test.contents, {
     sourceType: test.attrs.flags.module ? 'module' : 'script',
-    target: 'node22'
+    target
   });
 
   if (result.errors.length == 0) {
@@ -13,7 +17,7 @@ module.exports = function (test) {
     test.result = {
       stderr: `SyntaxError: ${error}`,
       stdout: '',
-      error: new Error(error)
+      error: new SyntaxError(error)
     };
   }
 
