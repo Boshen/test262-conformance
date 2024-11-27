@@ -1,0 +1,12 @@
+{
+  "name": "test262-conformance",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "init": "degit tc39/test262 test262"
+  },
+  "devDependencies": {
+    "degit": "^2.8.4",
+    "test262-harness": "^10.0.0"
+  }
+}
