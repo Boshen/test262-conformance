@@ -5,10 +5,12 @@ const target = process.env.TARGET || 'node22'
 console.log('target: ', target);
 
 module.exports = function (test) {
-  const result = transform(test.file, test.contents, {
-    sourceType: test.attrs.flags.module ? 'module' : 'script',
-    target
-  });
+  const code = test.file;
+  const sourceType = test.attrs.flags.module ? 'module' : 'script';
+
+  const result = transform(code, test.contents, { sourceType, target });
+  console.log(result.errors);
+  console.log(result.code);
 
   if (result.errors.length == 0) {
     test.contents = result.code;
