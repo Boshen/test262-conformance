@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      oxc-transform:
+        specifier: ^0.38.0
+        version: 0.38.0
     devDependencies:
       degit:
         specifier: ^2.8.4
@@ -19,6 +23,46 @@ packages:
 
   '@bazel/runfiles@6.3.1':
     resolution: {integrity: sha512-1uLNT5NZsUVIGS4syuHwTzZ8HycMPyr6POA3FCE4GbMtc4rhoJk8aZKtNIRthJYfL+iioppi+rTfH3olMPr9nA==}
+
+  '@oxc-transform/binding-darwin-arm64@0.38.0':
+    resolution: {integrity: sha512-avQJUlbYIi43gAuZdnoY514xeQ3f+A1Rbl80BBgjISCmKHTgnAQ8I33XGwYLYDZ6MKIqJFjW24AOFP8xpIT3Dw==}
+    cpu: [arm64]
+    os: [darwin]
+
+  '@oxc-transform/binding-darwin-x64@0.38.0':
+    resolution: {integrity: sha512-yIjtgsKWNxRCAF/a1LItipWIZdbPIGgb8VJyRdU87BqYeF4oHM0zEjn3cGE6LEA3Qbx5V744S5ouozaUZhkDQg==}
+    cpu: [x64]
+    os: [darwin]
+
+  '@oxc-transform/binding-linux-arm64-gnu@0.38.0':
+    resolution: {integrity: sha512-8xcwv8VO6ee/z8kx7Peu9iLFZmnHzX/65IAsZ6O+PHMEeJjgUfrqqrcScBF/HbEQ5oqW/Tg3AsLucayWKbclhg==}
+    cpu: [arm64]
+    os: [linux]
+
+  '@oxc-transform/binding-linux-arm64-musl@0.38.0':
+    resolution: {integrity: sha512-kMcS7St9x2nWnyxyHd59y0a2fxjh4Bn6OX6lGODhLYtFGujTbPThOzc0eO7PgS571ABxj+885+2PcbNB/WJBtQ==}
+    cpu: [arm64]
+    os: [linux]
+
+  '@oxc-transform/binding-linux-x64-gnu@0.38.0':
+    resolution: {integrity: sha512-HiI14gyp3bzEnP4Rre2VQcOJx53iEB7mUoNp0tlRCR2ViAJ/fJtTP7zRBjggpiFTyqow8cKA7kCr2qkws0yXHw==}
+    cpu: [x64]
+    os: [linux]
+
+  '@oxc-transform/binding-linux-x64-musl@0.38.0':
+    resolution: {integrity: sha512-KzerbU9AD4THINpAevOIaRXsZGQE6qRU9U0D5nI6Zs5qIBfzna7TbsJH45J6YNl4VgPaihO8yB9ZEkyF7+HRcA==}
+    cpu: [x64]
+    os: [linux]
+
+  '@oxc-transform/binding-win32-arm64-msvc@0.38.0':
+    resolution: {integrity: sha512-19Nj9WDPyZzp7RB2vkOF+sS9xWHHG+QksLUy3FnOEVdn9LrFTc4BSfmov8uYlU551VafpeeOLft6Kbo8QSDT2g==}
+    cpu: [arm64]
+    os: [win32]
+
+  '@oxc-transform/binding-win32-x64-msvc@0.38.0':
+    resolution: {integrity: sha512-viB5osZG8voPYm5vuodIZsUEmfgQuwSgO21wE4bM6PvtGNcVXqu0HyJLaaJFA7IpzO5VqLiy3U7Cum5CDkrYww==}
+    cpu: [x64]
+    os: [win32]
 
   accepts@1.3.8:
     resolution: {integrity: sha512-PYAthTa2m2VKxuvSD3DPC/Gy+U+sOA1LAuT8mkmRuvw+NACSaeXEQ+NHcVF7rONl6qcaxV3Uuemwawk+7+SJLw==}
@@ -239,6 +283,9 @@ packages:
     resolution: {integrity: sha512-D2FR03Vir7FIu45XBY20mTb+/ZSWB00sjU9jdQXt83gDrI4Ztz5Fs7/yy74g2N5SVQY4xY1qDr4rNddwYRVX0g==}
     engines: {node: '>=0.10.0'}
 
+  oxc-transform@0.38.0:
+    resolution: {integrity: sha512-vgUIJt7MuLRKm/TrrhC1mi2WrGR69s+Xc87ly6IHQ8w9T8SQbI0rYPX+oyQYeXn21v4jZzdh3jGLcF4Yo4NIWw==}
+
   p-limit@2.3.0:
     resolution: {integrity: sha512-//88mFWSJx8lxCzwdAABTJL2MyWB12+eIY7MDL2SqLmAkeKU9qxRvWuSyTjm3FUmpBEMuFfckAIqEaVGUDxb6w==}
     engines: {node: '>=6'}
@@ -419,6 +466,30 @@ packages:
 snapshots:
 
   '@bazel/runfiles@6.3.1': {}
+
+  '@oxc-transform/binding-darwin-arm64@0.38.0':
+    optional: true
+
+  '@oxc-transform/binding-darwin-x64@0.38.0':
+    optional: true
+
+  '@oxc-transform/binding-linux-arm64-gnu@0.38.0':
+    optional: true
+
+  '@oxc-transform/binding-linux-arm64-musl@0.38.0':
+    optional: true
+
+  '@oxc-transform/binding-linux-x64-gnu@0.38.0':
+    optional: true
+
+  '@oxc-transform/binding-linux-x64-musl@0.38.0':
+    optional: true
+
+  '@oxc-transform/binding-win32-arm64-msvc@0.38.0':
+    optional: true
+
+  '@oxc-transform/binding-win32-x64-msvc@0.38.0':
+    optional: true
 
   accepts@1.3.8:
     dependencies:
@@ -633,6 +704,17 @@ snapshots:
   negotiator@0.6.3: {}
 
   os-tmpdir@1.0.2: {}
+
+  oxc-transform@0.38.0:
+    optionalDependencies:
+      '@oxc-transform/binding-darwin-arm64': 0.38.0
+      '@oxc-transform/binding-darwin-x64': 0.38.0
+      '@oxc-transform/binding-linux-arm64-gnu': 0.38.0
+      '@oxc-transform/binding-linux-arm64-musl': 0.38.0
+      '@oxc-transform/binding-linux-x64-gnu': 0.38.0
+      '@oxc-transform/binding-linux-x64-musl': 0.38.0
+      '@oxc-transform/binding-win32-arm64-msvc': 0.38.0
+      '@oxc-transform/binding-win32-x64-msvc': 0.38.0
 
   p-limit@2.3.0:
     dependencies:

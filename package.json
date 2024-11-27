@@ -7,6 +7,7 @@
   },
   "devDependencies": {
     "degit": "^2.8.4",
+    "oxc-transform": "^0.38.0",
     "test262-harness": "^10.0.0"
   }
 }
