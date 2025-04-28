@@ -17,6 +17,10 @@ on:
       - "**/*.yml"
       - "!.github/workflows/ci.yml"
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.sha }}
+  cancel-in-progress: ${{ github.ref_name != 'main' }}
+
 jobs:
   build:
     name: Build
@@ -26,7 +30,11 @@ jobs:
       matrix:
         include:
           - node: 22.11.0
-          - node: 20.18.1
+          - node: 8.17.0
+          # Numerous things break in lower versions of node.
+          # - node: 4.9.1
+          # - node: 0.12.18
+          # - node: 0.10.48
     steps:
       - uses: taiki-e/checkout-action@v1
 
@@ -34,11 +42,17 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node }}
+          node-version: 22
           cache: pnpm
 
       - run: pnpm install --frozen-lockfile
 
       - run: pnpm run init
 
-      - run: TARGET=node${{ matrix.node }} ./ci.sh
+      - run: curl -L -o node.tar.gz "https://nodejs.org/dist/v${{ matrix.node }}/node-v${{ matrix.node }}-linux-x64.tar.gz"
+
+      - run: tar -zxf node.tar.gz
+
+      - run: ./node-v${{ matrix.node }}-linux-x64/bin/node --version
+
+      - run: TARGET=node${{ matrix.node }} ./ci.sh ./node-v${{ matrix.node }}-linux-x64/bin/node
